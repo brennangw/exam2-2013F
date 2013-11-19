@@ -11,11 +11,11 @@ public class LinkedList<T> implements Iterable<T> {
     // | Notes |
     // +-------+
 
-/*
-    These are simple, singly-linked lists.  Each node has a pointer to
-    the next node.  For fun, convenience, or confusion, we a dummy node
-    at the front of the list that also serves as the end of the list.
- */
+    /*
+     * These are simple, singly-linked lists. Each node has a pointer to the
+     * next node. For fun, convenience, or confusion, we a dummy node at the
+     * front of the list that also serves as the end of the list.
+     */
 
     // +--------+----------------------------------------------------------
     // | Fields |
@@ -34,7 +34,7 @@ public class LinkedList<T> implements Iterable<T> {
      * Create a new, empty, list.
      */
     public LinkedList() {
-        this.clear();
+	this.clear();
     } // LinkedList
 
     // +-----------+-------------------------------------------------------
@@ -45,46 +45,45 @@ public class LinkedList<T> implements Iterable<T> {
      * Get a cursor right before the first element of the list.
      */
     public Cursor front() {
-        return new CursorLL<T>(front);
+	return new CursorLL<T>(front);
     } // front()
 
     /**
      * Get the value immediately following the cursor.
      */
     public T get(Cursor c) throws Exception {
-        @SuppressWarnings("unchecked")
-        CursorLL<T> cll = (CursorLL<T>) c;
-        if (cll.current.next == front) {
-             throw new NoSuchElementException();
-        } // if (cll.current.next == front)
-        return cll.current.next.value;
+	@SuppressWarnings("unchecked")
+	CursorLL<T> cll = (CursorLL<T>) c;
+	if (cll.current.next == front) {
+	    throw new NoSuchElementException();
+	} // if (cll.current.next == front)
+	return cll.current.next.value;
     } // get(Cursor)
 
     /**
      * Advance the cursor over one element.
-     *
-     * @pre
-     *    The cursor must have been created by front and not be
-     *    at the end of the list.
+     * 
+     * @pre The cursor must have been created by front and not be at the end of
+     *      the list.
      * @throws Exception
-     *    If the cursor is at the end of the list.
+     *             If the cursor is at the end of the list.
      */
     public void advance(Cursor c) throws Exception {
-        @SuppressWarnings("unchecked")
-        CursorLL<T> cll = (CursorLL<T>) c;
-        if (cll.current.next == front) {
-             throw new NoSuchElementException();
-        } // if (cll.current.next == front)
-        cll.current = cll.current.next;
+	@SuppressWarnings("unchecked")
+	CursorLL<T> cll = (CursorLL<T>) c;
+	if (cll.current.next == front) {
+	    throw new NoSuchElementException();
+	} // if (cll.current.next == front)
+	cll.current = cll.current.next;
     } // advance
 
     /**
      * Determine if the cursor is at the end of the list.
      */
     public boolean atEnd(Cursor c) {
-         @SuppressWarnings("unchecked")
-         CursorLL<T> cll = (CursorLL<T>) c;
-         return cll.current.next == front;
+	@SuppressWarnings("unchecked")
+	CursorLL<T> cll = (CursorLL<T>) c;
+	return cll.current.next == front;
     } // atEnd(Cursor c)
 
     // +----------+--------------------------------------------------------
@@ -95,20 +94,20 @@ public class LinkedList<T> implements Iterable<T> {
      * Add a new element immediately after the cursor.
      */
     public void add(Cursor c, T val) {
-         @SuppressWarnings("unchecked")
-         CursorLL<T> cll = (CursorLL<T>) c;
-         cll.current.next = new NodeLL<T>(val, cll.current.next);
+	@SuppressWarnings("unchecked")
+	CursorLL<T> cll = (CursorLL<T>) c;
+	cll.current.next = new NodeLL<T>(val, cll.current.next);
     } // add(Cursor, T)
-        
+
     /**
      * Remove all elements from the list.
-     *
+     * 
      * @post The list has no elements.
      * @post All iterators are invalid.
      */
     public void clear() {
-        this.front = new NodeLL<T>(null);
-        this.front.next = front;
+	this.front = new NodeLL<T>(null);
+	this.front.next = front;
     } // clear()
 
     // +-----------+-------------------------------------------------------
@@ -116,7 +115,7 @@ public class LinkedList<T> implements Iterable<T> {
     // +-----------+
 
     public Iterator<T> iterator() {
-        return new IteratorLL<T>(this);
+	return new IteratorLL<T>(this);
     } // iterator
 
 } // LinkedList<T>
@@ -143,15 +142,15 @@ class NodeLL<T> {
      * Construct a new node with no successor.
      */
     public NodeLL(T val) {
-       this(val, null);
+	this(val, null);
     } // NodeLL(T)
 
     /**
      * Construct a new node with a specified successor.
      */
     public NodeLL(T value, NodeLL<T> next) {
-        this.value = value;
-        this.next = next;
+	this.value = value;
+	this.next = next;
     } // NodeLL(T, NodeLL<T>)
 } // class NodeLL<T>
 
@@ -168,7 +167,7 @@ class CursorLL<T> implements Cursor {
      * Create a new cursor.
      */
     public CursorLL(NodeLL<T> current) {
-        this.current = current;
+	this.current = current;
     } // CursorLL(NodeLL<T>)
 } // class CursorLL<T>
 
@@ -181,14 +180,13 @@ class IteratorLL<T> implements Iterator<T> {
     // +--------+
 
     /**
-     * We may need to access some of the internals of the linked
-     * list class.
+     * We may need to access some of the internals of the linked list class.
      */
     LinkedList<T> list;
 
     /**
-     * For reasons that may eventually become obvious, we have a cursor
-     * that's two elements back from the next element we iterate.
+     * For reasons that may eventually become obvious, we have a cursor that's
+     * two elements back from the next element we iterate.
      */
     NodeLL<T> here;
 
@@ -197,27 +195,27 @@ class IteratorLL<T> implements Iterator<T> {
     // +--------------+
 
     public IteratorLL(LinkedList<T> list) {
-        this.here = new NodeLL<T>(null,list.front);
-        this.list = list;
-    }  // IteratorLL
+	this.here = new NodeLL<T>(null, list.front);
+	this.list = list;
+    } // IteratorLL
 
     // +---------+---------------------------------------------------------
     // | Methods |
     // +---------+
 
     public T next() {
-        if (! this.hasNext()) {
-            throw new NoSuchElementException();
-        } // if we've reached the end
-        this.here = this.here.next;
-        return this.here.next.value;
+	if (!this.hasNext()) {
+	    throw new NoSuchElementException();
+	} // if we've reached the end
+	this.here = this.here.next;
+	return this.here.next.value;
     } // next
 
     public boolean hasNext() {
-        return (this.here.next.next != this.list.front);
+	return (this.here.next.next != this.list.front);
     } // hasNext
 
     public void remove() throws UnsupportedOperationException {
-        throw new UnsupportedOperationException();
+	throw new UnsupportedOperationException();
     } // remove
 } // class IteratorLL<T>

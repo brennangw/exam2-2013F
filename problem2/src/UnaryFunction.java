@@ -1,7 +1,7 @@
 /**
  * A simple model of unary functions as objects.
  */
-public interface UnaryFunction<Input,Output> {
+public interface UnaryFunction<Input, Output> {
     /**
      * Apply the function to a value.
      */
