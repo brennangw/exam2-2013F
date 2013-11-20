@@ -84,7 +84,6 @@ public class BST<K, V> implements Dictionary<K, V> {
 
     public void remove(K key) {
 	// STUB
-	return null;
     } // remove(K)
 
     public void clear() {
