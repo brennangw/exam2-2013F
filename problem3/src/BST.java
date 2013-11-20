@@ -82,7 +82,7 @@ public class BST<K, V> implements Dictionary<K, V> {
 	this.root = insert(this.root, key, value);
     } // set
 
-    public V remove(K key) {
+    public void remove(K key) {
 	// STUB
 	return null;
     } // remove(K)
