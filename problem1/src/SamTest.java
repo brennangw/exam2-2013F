@@ -70,7 +70,7 @@ public class SamTest {
 	    Iterator<Character> it = lst.iterator();
 	    it.next();
 	    it.remove();
-	    check(lst, str.substring(i));
+	    check(lst, str.substring(i+1));
 	} // for
     } // testRemoveFront()
 
