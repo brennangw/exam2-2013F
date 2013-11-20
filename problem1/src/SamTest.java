@@ -70,7 +70,7 @@ public class SamTest {
 	    Iterator<Character> it = lst.iterator();
 	    it.next();
 	    it.remove();
-	    check(lst, str.substring(i));
+	    check(lst, str.substring(i+1));
 	} // for
     } // testRemoveFront()
 
@@ -101,7 +101,7 @@ public class SamTest {
     public void testRemoveVarious() throws Exception {
 	LinkedList<Character> lst = stringToList("abbacbbabbxccab");
 	removeAll(lst, 'a');
-	check(lst, "bbcbbxbbccb");
+	check(lst, "bbcbbbbxccb");
 	removeAll(lst, 'b');
 	check(lst, "cxcc");
 	removeAll(lst, 'c');
