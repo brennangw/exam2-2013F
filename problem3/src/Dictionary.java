@@ -38,14 +38,10 @@ public interface Dictionary<K, V> extends Iterable<V> {
     public void set(K key, V value);
 
     /**
-     * Remove the value associated with a particular key. Future calls to get
-     * with the same key should throw exceptions (at least until the next call
-     * to set with the same key). If there are no values associated with the
-     * key, does nothing.
-     * 
-     * @return the value associated with the key
+     * Remove the value associated with a particular key.  If
+     * there are no values associated with the * key, does nothing.
      */
-    public V remove(K key);
+    public void remove(K key);
 
     /**
      * Remove all of the items from the dictionary.

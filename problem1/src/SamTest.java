@@ -101,7 +101,7 @@ public class SamTest {
     public void testRemoveVarious() throws Exception {
 	LinkedList<Character> lst = stringToList("abbacbbabbxccab");
 	removeAll(lst, 'a');
-	check(lst, "bbcbbxbbccb");
+	check(lst, "bbcbbbbxccb");
 	removeAll(lst, 'b');
 	check(lst, "cxcc");
 	removeAll(lst, 'c');
