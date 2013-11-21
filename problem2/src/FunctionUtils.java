@@ -75,7 +75,7 @@ public class FunctionUtils {
      *   For each i, 0 <= i < vals.length
      *     results[i] = fun.apply(vals[i])
      */
-    public static <...> ...[] map(UnaryFunction<...> fun, ...[] vals) {
+    public static <...> ...[] map(UnaryFunction<...> fun, ...[] vals) throws Exception {
          ...[] results = (...[]) new Object[vals.length];
          ...;
          return result;
@@ -91,7 +91,7 @@ public class FunctionUtils {
      *     results[i] = fun.apply(left[i], right[i])
      */
     public static <...> ...[] map(BinaryFunction<....> fun, ...[] left,
-            ...[] right) {
+            ...[] right) throws Exception {
         ....;
     } // map
 } // class FunctionUtils
